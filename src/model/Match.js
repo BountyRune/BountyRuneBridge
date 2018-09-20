@@ -7,7 +7,7 @@ class Match {
 		return {
 			radiantTeam: this.radiantTeam,
 			direTeam: this.direTeam,
-			result: this.result,
+			...this.result,
 			...this.getPlayersStats,
 			startTime: this.start_time,
 		}
