@@ -15,12 +15,19 @@ app
 	.use(bodyParser.json())
 	.use(cors());
 
+app.get('/', (req, res) => {
+	res.send("This is the Bounty Rune Bridge");
+})
+
 app.get('/result/dota/:id', (req, res) => {
 	const {id} = req.params;
 	axios.get(`https://api.opendota.com/api/matches/${id}`)
 		.then(x => {
 			const currentMatch = new Match({...x.data});
-			res.send({...currentMatch.info});
+			res.status(200).send({...currentMatch.info});
+		})
+		.catch(err => {
+			res.status(400).send("Match Not Found")
 		})
 })
 
@@ -31,7 +38,10 @@ app.get('/result/dota/:id/dev', (req, res) => {
 	axios.get(`https://api.opendota.com/api/matches/${id}`)
 		.then(x => {
 			const currentMatch = new MockMatch({...x.data});
-			res.send({...currentMatch.info});
+			res.status(200).send({...currentMatch.info});
+		})
+		.catch(err => {
+			res.status(400).send("Match Not Found")
 		})
 })
 
