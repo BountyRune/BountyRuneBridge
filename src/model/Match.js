@@ -36,7 +36,9 @@ class Match {
 
 	get timeStarted() {
 		const timeStampDigitLength = 13;
-		if(this.start_time.toString().length > timeStampDigitLength) {
+	
+		if(this.start_time.toString().length < timeStampDigitLength) {
+			console.log('--')
 			let timeStampString = this.start_time.toString();
 			const zeroesLeft = timeStampDigitLength - this.start_time.toString().length;
 			for(let i = 0; i < zeroesLeft; i++) {
