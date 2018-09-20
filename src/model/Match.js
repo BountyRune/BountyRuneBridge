@@ -34,6 +34,19 @@ class Match {
 		return this.radiant_team;
 	}
 
+	get timeStarted() {
+		const timeStampDigitLength = 13;
+		if(this.start_time.toString().length > timeStampDigitLength) {
+			let timeStampString = this.start_time.toString();
+			const zeroesLeft = timeStampDigitLength - this.start_time.toString().length;
+			for(let i = 0; i < zeroesLeft; i++) {
+				timeStampString = timeStampString + '0';
+			}
+			return parseInt(timeStampString);
+		}
+		return this.start_time;		
+	}
+
 	get getPlayersStats() {
 		let radiantPlayers = [];
 		let direPlayers = [];
