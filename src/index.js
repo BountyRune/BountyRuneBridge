@@ -2,15 +2,18 @@ const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
 const Match = require('./model/Match');
+const cors = require('cors');
 // This class if for testing purposes only
 const MockMatch = require('./model/MockMatch');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({
+app
+	.use(bodyParser.urlencoded({
   extended: false,
-}));
-app.use(bodyParser.json());
+}))
+	.use(bodyParser.json())
+	.use(cors());
 
 app.get('/result/dota/:id', (req, res) => {
 	const {id} = req.params;
