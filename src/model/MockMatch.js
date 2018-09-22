@@ -1,5 +1,6 @@
 const Match = require('./Match');
 
+// for testing purposes
 class MockMatch extends Match {
     constructor(docs) {
         super(docs);

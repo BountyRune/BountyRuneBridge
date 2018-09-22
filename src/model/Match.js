@@ -17,12 +17,12 @@ class Match {
 	get result() {
 		const lastObjective = this.objectives[this.objectives.length - 1];
 		if(lastObjective.key !== 'npc_dota_goodguys_fort') {
-			return {msg: 'Game Ongoing', finished: false };
+			return {msg: 'Game Ongoing', finished: false, winner: '' };
 		} else {
 			if(this.radiant_win) {
-				return {msg: `${this.radiantTeam.name} WIN`, finished: true };
+				return {msg: `${this.radiantTeam.name} WIN`, finished: true, winner: 'Radiant'};
 			} else {
-				return {msg: `${this.direTeam.name} WIN`, finished: true };
+				return {msg: `${this.direTeam.name} WIN`, finished: true, winner: 'Dire' };
 			}
 		}
 	}
