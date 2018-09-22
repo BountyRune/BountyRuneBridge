@@ -9,6 +9,7 @@ class Match {
 			direTeam: this.direTeam,
 			...this.result,
 			...this.getPlayersStats,
+			radiantWin: this.radiant_win,
 			startTime: this.timeStarted,
 		}
 	}
