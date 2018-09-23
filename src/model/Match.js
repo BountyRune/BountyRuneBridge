@@ -17,7 +17,7 @@ class Match {
 
 	get result() {
 		const lastObjective = this.objectives[this.objectives.length - 1];
-		if(lastObjective.key !== 'npc_dota_goodguys_fort') {
+		if(lastObjective.key !== 'npc_dota_goodguys_fort' || lastObjective.key !== 'npc_dota_badguys_fort') {
 			return {msg: 'Game Ongoing', finished: false, winner: '' };
 		} else {
 			if(this.radiant_win) {
