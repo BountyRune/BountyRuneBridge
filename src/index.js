@@ -23,7 +23,7 @@ app.get('/result/dota/:id', (req, res) => {
 	const {id} = req.params;
 	axios.get(`https://api.opendota.com/api/matches/${id}`)
 		.then(x => {
-			const currentMatch = new Match({...x.data});
+			const currentMatch = new Match({...x.data, id});
 			res.status(200).send({...currentMatch.info});
 		})
 		.catch(err => {
