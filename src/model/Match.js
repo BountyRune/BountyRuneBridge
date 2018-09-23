@@ -11,6 +11,7 @@ class Match {
 			...this.getPlayersStats,
 			radiantWin: this.radiant_win,
 			startTime: this.timeStarted,
+			id: this.match_id,
 		}
 	}
 
